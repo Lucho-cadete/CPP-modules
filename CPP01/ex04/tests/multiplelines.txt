@@ -1,0 +1,3 @@
+first line with cat
+second line with nothing
+third line with cat again
