@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luimarti <luimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/08 13:03:47 by luimarti          #+#    #+#             */
-/*   Updated: 2026/09/08 14:57:14 by luimarti         ###   ########.fr       */
+/*   Created: 2026/09/08 14:07:40 by luimarti          #+#    #+#             */
+/*   Updated: 2026/09/08 14:23:28 by luimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main()
-{
-    Harl harl;
+#include <iostream>
 
-    harl.complain("DEBUG");
-    harl.complain("INFO");
-    harl.complain("WARNING");
-    harl.complain("ERROR");
-	harl.complain("PANIC");
+class Harl {
+    private:
+        void debug(void);
+        void info(void);
+        void warning(void);
+        void error(void);
 
-    return (0);
-}
+    public:
+        void complain(std::string level);
+};
+
+#endif
