@@ -9,3 +9,5 @@ weapon
 sed
 harl
 fixed
+doctest.h
+tests
