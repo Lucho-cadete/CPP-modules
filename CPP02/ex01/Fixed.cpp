@@ -42,7 +42,7 @@ Fixed::Fixed(float const value)
 
 	if (scaled != scaled)
 		_value = 0;
-	else if (scaled > 2147483647.0f)
+	else if (scaled >= 2147483648.0f)
 		_value = 2147483647;
 	else if (scaled < -2147483648.0f)
 		_value = -2147483648;

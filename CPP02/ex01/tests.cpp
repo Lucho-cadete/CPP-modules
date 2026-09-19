@@ -3,7 +3,7 @@
 #include "Fixed.hpp"
 #include <sstream>
 
-TEST_CASE("valores que caen exactos en la rejilla")
+TEST_CASE("values that land exactly on the grid")
 {
 	CHECK(Fixed(0).toFloat() == 0.0f);
 	CHECK(Fixed(10).toFloat() == 10.0f);
@@ -11,13 +11,13 @@ TEST_CASE("valores que caen exactos en la rejilla")
 	CHECK(Fixed(0.25f).toFloat() == 0.25f);
 }
 
-TEST_CASE("valores con perdida de precision")
+TEST_CASE("values that lose precision")
 {
 	CHECK(Fixed(42.42f).toFloat() == doctest::Approx(42.42f).epsilon(0.004));
 	CHECK(Fixed(0.1f).toFloat() == doctest::Approx(0.1f).epsilon(0.004));
 }
 
-TEST_CASE("el valor interno es el esperado")
+TEST_CASE("internal raw value is as expected")
 {
 	CHECK(Fixed(1).getRawBits() == 256);
 	CHECK(Fixed(10).getRawBits() == 2560);
@@ -25,26 +25,26 @@ TEST_CASE("el valor interno es el esperado")
 	CHECK(Fixed(42.42f).getRawBits() == 10860);
 }
 
-TEST_CASE("toInt trunca, no redondea")
+TEST_CASE("toInt truncates, does not round")
 {
 	CHECK(Fixed(42.42f).toInt() == 42);
 	CHECK(Fixed(42.99f).toInt() == 42);
 }
 
-TEST_CASE("numeros negativos")
+TEST_CASE("negative numbers")
 {
 	CHECK(Fixed(-10).getRawBits() == -2560);
 	CHECK(Fixed(-0.5f).getRawBits() == -128);
 	CHECK(Fixed(-42.42f).toInt() == -42);
 }
 
-TEST_CASE("ida y vuelta con enteros es exacta")
+TEST_CASE("int round trip is lossless")
 {
 	for (int i = -100; i <= 100; i++)
 		CHECK(Fixed(i).toInt() == i);
 }
 
-TEST_CASE("epsilon: el valor mas pequeno representable")
+TEST_CASE("epsilon: smallest representable value")
 {
 	Fixed eps;
 	eps.setRawBits(1);
@@ -52,26 +52,26 @@ TEST_CASE("epsilon: el valor mas pequeno representable")
 	CHECK(eps.toInt() == 0);
 }
 
-TEST_CASE("operator<< imprime la representacion en coma flotante")
+TEST_CASE("operator<< prints the floating point representation")
 {
 	std::ostringstream oss;
 	oss << Fixed(42.42f);
 	CHECK(oss.str() == "42.4219");
 }
 
-TEST_CASE("comportamiento en casos degenerados")
+TEST_CASE("range limits saturate instead of overflowing")
 {
-	std::cout << "--- desbordamiento ---" << std::endl;
-	std::cout << "8388607 -> " << Fixed(8388607).toInt() << std::endl;
-	std::cout << "8388608 -> " << Fixed(8388608).toInt() << std::endl;
-	std::cout << "100000000 -> " << Fixed(100000000).toInt() << std::endl;
+	CHECK(Fixed(8388607).toInt() == 8388607);
+	CHECK(Fixed(8388608).getRawBits() == 2147483647);
+	CHECK(Fixed(100000000).getRawBits() == 2147483647);
+	CHECK(Fixed(-8388609).getRawBits() == -2147483648);
+}
 
-	std::cout << "--- inf y nan ---" << std::endl;
-	std::cout << "inf -> " << Fixed(1.0f / 0.0f).getRawBits() << std::endl;
-	std::cout << "-inf -> " << Fixed(-1.0f / 0.0f).getRawBits() << std::endl;
-	std::cout << "nan -> " << Fixed(0.0f / 0.0f).getRawBits() << std::endl;
-
-	std::cout << "--- floats enormes ---" << std::endl;
-	std::cout << "1e20 -> " << Fixed(1e20f).getRawBits() << std::endl;
-	std::cout << "-1e20 -> " << Fixed(-1e20f).getRawBits() << std::endl;
+TEST_CASE("degenerate float inputs are handled")
+{
+	CHECK(Fixed(0.0f / 0.0f).getRawBits() == 0);
+	CHECK(Fixed(1.0f / 0.0f).getRawBits() == 2147483647);
+	CHECK(Fixed(-1.0f / 0.0f).getRawBits() == -2147483648);
+	CHECK(Fixed(1e20f).getRawBits() == 2147483647);
+	CHECK(Fixed(-1e20f).getRawBits() == -2147483648);
 }
