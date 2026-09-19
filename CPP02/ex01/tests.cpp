@@ -75,3 +75,12 @@ TEST_CASE("degenerate float inputs are handled")
 	CHECK(Fixed(1e20f).getRawBits() == 2147483647);
 	CHECK(Fixed(-1e20f).getRawBits() == -2147483648);
 }
+
+TEST_CASE("float constructor saturates at the int boundary")
+{
+	CHECK(Fixed(8388607.0f).getRawBits() == 2147483392);
+	CHECK(Fixed(8388608.0f).getRawBits() == 2147483647);
+	CHECK(Fixed(8388607.9f).getRawBits() == 2147483647);
+	CHECK(Fixed(-8388608.0f).getRawBits() == -2147483647 - 1);
+	CHECK(Fixed(-8388609.0f).getRawBits() == -2147483647 - 1);
+}
