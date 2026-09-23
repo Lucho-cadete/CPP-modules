@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 19:13:11 by lucho             #+#    #+#             */
-/*   Updated: 2026/09/21 21:22:32 by lucho            ###   ########.fr       */
+/*   Updated: 2026/09/23 12:24:02 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,7 @@ Fixed Fixed::operator-(Fixed const &other) const
 	return (result);
 }
 
-Fixed Fixed::operator* (Fixed const &other) const
+Fixed Fixed::operator*(Fixed const &other) const
 {
 	float left = this->toFloat();
 	float right = other.toFloat();
@@ -205,11 +205,50 @@ Fixed Fixed::operator* (Fixed const &other) const
 	return (result);
 }
 
-Fixed Fixed::operator/ (Fixed const &other) const
+Fixed Fixed::operator/(Fixed const &other) const
 {
 	float left = this->toFloat();
 	float right = other.toFloat();
 	float division = left / right;
 	Fixed result(division);
 	return(result);
+}
+
+Fixed &Fixed::operator++(void)
+{
+	if (this->_value == 2147483647)
+		std::cerr << "Warning: increment overflow, value unchanged" << std::endl;
+	else
+		this->_value = this->_value + 1;
+	return (*this);
+}
+
+Fixed &Fixed::operator--(void)
+{
+	if (this->_value == -2147483648)
+		std::cerr << "Warning: decrement overflow, value unchanged" << std::endl;
+	else
+		this->_value = this->_value - 1;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed original(*this);
+
+	if (this->_value == 2147483647)
+		std::cerr << "Warning: increment overflow, value unchanged" << std::endl;
+	else
+		this->_value = this->_value + 1;
+	return (original);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed original(*this);
+	if (this->_value == -2147483648)
+		std::cerr << "Warning: decrement overflow, value unchanged" << std::endl;
+	else
+		this->_value = this->_value - 1;
+	return (original);
 }

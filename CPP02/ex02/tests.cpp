@@ -1,3 +1,5 @@
+//c++ -std=c++11 tests.cpp Fixed.cpp -o tests && ./tests
+
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 #include "Fixed.hpp"
@@ -66,4 +68,39 @@ TEST_CASE("division by zero does not crash")
 	CHECK((Fixed(5) / Fixed(0)).getRawBits() == 2147483647);
 	CHECK((Fixed(-5) / Fixed(0)).getRawBits() == -2147483648);
 	CHECK((Fixed(0) / Fixed(0)).getRawBits() == 0);
+}
+
+TEST_CASE("pre-increment returns the new value")
+{
+	Fixed a;
+	CHECK((++a).getRawBits() == 1);
+	CHECK(a.getRawBits() == 1);
+}
+
+TEST_CASE("post-increment returns the old value")
+{
+	Fixed a;
+	CHECK((a++).getRawBits() == 0);
+	CHECK(a.getRawBits() == 1);
+}
+
+TEST_CASE("pre-decrement returns the new value")
+{
+	Fixed a;
+	CHECK((--a).getRawBits() == -1);
+	CHECK(a.getRawBits() == -1);
+}
+
+TEST_CASE("post-decrement returns the old value")
+{
+	Fixed a;
+	CHECK((a--).getRawBits() == 0);
+	CHECK(a.getRawBits() == -1);
+}
+
+TEST_CASE("increment adds epsilon")
+{
+	Fixed a;
+	a++;
+	CHECK(a.toFloat() == 0.00390625f);
 }
