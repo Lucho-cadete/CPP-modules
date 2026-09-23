@@ -6,7 +6,7 @@
 #    By: lucho <lucho@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/23 13:02:24 by lucho             #+#    #+#              #
-#    Updated: 2026/09/23 13:02:47 by lucho            ###   ########.fr        #
+#    Updated: 2026/09/24 00:01:04 by lucho            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJ_DIR)/%.o: %.cpp Fixed.hpp | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: %.cpp ClapTrap.hpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
