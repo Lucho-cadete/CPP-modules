@@ -104,3 +104,33 @@ TEST_CASE("increment adds epsilon")
 	a++;
 	CHECK(a.toFloat() == 0.00390625f);
 }
+
+TEST_CASE("min and max")
+{
+	Fixed a(5);
+	Fixed b(3);
+
+	CHECK(Fixed::max(a, b).toInt() == 5);
+	CHECK(Fixed::min(a, b).toInt() == 3);
+	CHECK(Fixed::max(b, a).toInt() == 5);
+	CHECK(Fixed::min(b, a).toInt() == 3);
+}
+
+TEST_CASE("min and max with const objects")
+{
+	Fixed const a(5);
+	Fixed const b(3);
+
+	CHECK(Fixed::max(a, b).toInt() == 5);
+	CHECK(Fixed::min(a, b).toInt() == 3);
+}
+
+TEST_CASE("max returns a reference to the original")
+{
+	Fixed a(5);
+	Fixed b(3);
+
+	Fixed::max(a, b) = Fixed(100);
+	CHECK(a.toInt() == 100);
+	CHECK(b.toInt() == 3);
+}

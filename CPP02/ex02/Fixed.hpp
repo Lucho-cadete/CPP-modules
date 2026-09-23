@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 19:13:18 by lucho             #+#    #+#             */
-/*   Updated: 2026/09/23 11:42:33 by lucho            ###   ########.fr       */
+/*   Updated: 2026/09/23 12:37:38 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ public:
 	Fixed&	operator-- (void);
 	Fixed	operator++ (int);
 	Fixed	operator-- (int);
+	static Fixed &min(Fixed &a, Fixed &b);
+	static Fixed const &min(Fixed const &a, Fixed const &b);
+	static Fixed &max(Fixed &a, Fixed &b);
+	static Fixed const &max(Fixed const &a, Fixed const &b);
 	
 };
 
