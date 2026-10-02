@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 13:41:09 by lucho             #+#    #+#             */
-/*   Updated: 2026/09/30 13:58:02 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/02 10:42:41 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Animal::Animal (void)
 {
-	std::cout << "Default animal constructor called" << std::endl;
+	std::cout << "Default Animal constructor called" << std::endl;
 	this->type = "Animal";
 }
 
@@ -39,7 +39,7 @@ Animal::~Animal(void)
 
 void Animal::makeSound(void) const
 {
-	std::cout << "* some generic animal noise *" << std::endl;
+	std::cout << "* some generic Animal noise *" << std::endl;
 }
 
 std::string Animal::getType(void) const
