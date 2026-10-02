@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 09:59:10 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 11:51:57 by lucho            ###   ########.fr       */
+/*   Created: 2026/10/02 11:40:12 by lucho             #+#    #+#             */
+/*   Updated: 2026/10/02 12:08:03 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#pragma once
 
-#include <iostream>
+#include <string>
 
-int main()
-{
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	
-	delete j;
-	delete i;
+class Brain{
+	private:
+		std::string ideas[100];
+	public:
+		Brain(void);
+		Brain(Brain const &other);
+		Brain& operator=(Brain const &other);
+		~Brain(void);
 
-
-	return 0;
-}
+		void setIdea(int index, std::string const &idea);
+		std::string getIdea(int index) const;
+};

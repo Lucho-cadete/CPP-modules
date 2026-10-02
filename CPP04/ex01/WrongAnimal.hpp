@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 09:59:10 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 11:51:57 by lucho            ###   ########.fr       */
+/*   Created: 2026/10/02 10:39:44 by lucho             #+#    #+#             */
+/*   Updated: 2026/10/02 11:19:09 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#pragma once
 
-#include <iostream>
+#include <string>
 
-int main()
-{
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	
-	delete j;
-	delete i;
+class WrongAnimal{
+	protected:
+		std::string	type;
 
+	public:
+		WrongAnimal(void);
+		WrongAnimal(WrongAnimal const &other);
+		WrongAnimal& operator=(WrongAnimal const &other);
+		virtual ~WrongAnimal(void);
 
-	return 0;
-}
+		void makeSound(void) const;
+		std::string getType(void) const;
+};

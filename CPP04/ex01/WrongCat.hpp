@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 09:59:10 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 11:51:57 by lucho            ###   ########.fr       */
+/*   Created: 2026/10/02 10:36:51 by lucho             #+#    #+#             */
+/*   Updated: 2026/10/02 11:15:52 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#pragma once
+
 #include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
-#include <iostream>
+class WrongCat : public WrongAnimal{
+	public:
+		WrongCat(void);
+		WrongCat(WrongCat const &other);
+		WrongCat& operator=(WrongCat const &other);
+		~WrongCat(void);
 
-int main()
-{
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	
-	delete j;
-	delete i;
-
-
-	return 0;
-}
+		void makeSound(void) const;
+};
