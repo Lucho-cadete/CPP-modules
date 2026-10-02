@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:49 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 10:17:20 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/02 13:17:43 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Cat::Cat(void) : Animal()
 {
-	std::cout << "Default Cat constructor called" << std::endl;
+	std::cout << "Cat default constructor called" << std::endl;
 	this->type = "Cat";
 }
 

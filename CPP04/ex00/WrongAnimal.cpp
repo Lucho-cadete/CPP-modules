@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 10:40:27 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 11:21:03 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/02 13:18:14 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 WrongAnimal::WrongAnimal(void)
 {
-	std::cout << "Default WrongAnimal constructor called" << std::endl;
+	std::cout << "WrongAnimal default constructor called" << std::endl;
 	this->type = "WrongAnimal";
 }
 

@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 10:37:52 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 10:41:26 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/02 13:18:05 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 WrongCat::WrongCat(void) : WrongAnimal()
 {
-	std::cout << "Default WrongCat constructor called" << std::endl;
+	std::cout << "WrongCat default constructor called" << std::endl;
 	this->type = "WrongCat";
 }
 

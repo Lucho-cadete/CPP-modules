@@ -6,21 +6,21 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:49 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 13:17:22 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/02 13:23:26 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include <iostream>
 
-Cat::Cat(void) : Animal()
+Cat::Cat(void) : Aanimal()
 {
 	std::cout << "Cat default constructor called" << std::endl;
 	this->type = "Cat";
 	this->_brain = new Brain();
 }
 
-Cat::Cat(Cat const &other) : Animal(other)
+Cat::Cat(Cat const &other) : Aanimal(other)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	// this->type = other.type;
@@ -33,7 +33,7 @@ Cat& Cat::operator=(Cat const &other)
 	
 	if (this != &other)
 	{
-		Animal::operator=(other);
+		Aanimal::operator=(other);
 		delete this->_brain;
 		this->_brain = new Brain(*other._brain);
 	}

@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:56 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 12:36:50 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/02 13:17:32 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Dog::Dog(void) : Animal()
 {
-	std::cout << "Default Dog constructor called" << std::endl;
+	std::cout << "Dog default constructor called" << std::endl;
 	this->type = "Dog";
 	this->_brain = new Brain();
 }
@@ -50,3 +50,9 @@ void Dog::makeSound(void) const
 {
 	std::cout << "WOOF WOOF WOOF" << std::endl;
 }
+
+Brain *Dog::getBrain(void)
+{
+    return _brain;
+}
+
