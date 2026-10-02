@@ -6,14 +6,14 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 13:41:09 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 10:42:41 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/02 11:16:26 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include <iostream>
 
-Animal::Animal (void)
+Animal::Animal(void)
 {
 	std::cout << "Default Animal constructor called" << std::endl;
 	this->type = "Animal";

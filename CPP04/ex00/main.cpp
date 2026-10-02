@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 09:59:10 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 11:06:58 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/02 11:15:04 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int main()
 	std::cout << "=== CONSTRUCTION ===" << std::endl << std::endl;
 
 	const Animal* meta = new Animal();
-	const Animal* i = new Dog();
-	const Animal* j = new Cat();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 	Dog d;
 	Cat c;
 	const Animal& k = d;
@@ -38,9 +38,9 @@ int main()
 
 	std::cout << std::endl << "=== GETTYPE ===" << std::endl << std::endl;
 
-	std::cout << i->getType() << std::endl;
-	std::cout << k.getType() << std::endl;
 	std::cout << j->getType() << std::endl;
+	std::cout << k.getType() << std::endl;
+	std::cout << i->getType() << std::endl;
 	std::cout << l.getType() << std::endl;
 
 	std::cout << std::endl << "=== GETTYPE: WRONG CLASSES ===" << std::endl << std::endl;
@@ -52,9 +52,9 @@ int main()
 	std::cout << std::endl << "=== MAKESOUND: VIRTUAL PICKS THE REAL OBJECT ===" << std::endl << std::endl;
 
 	meta->makeSound();
-	i->makeSound();
-	k.makeSound();
 	j->makeSound();
+	k.makeSound();
+	i->makeSound();
 	l.makeSound();
 
 	std::cout << std::endl << "=== MAKESOUND: NO VIRTUAL, THE POINTER WINS ===" << std::endl << std::endl;

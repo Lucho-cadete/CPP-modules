@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 10:36:51 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 10:37:36 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/02 11:15:52 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ class WrongCat : public WrongAnimal{
 		WrongCat& operator=(WrongCat const &other);
 		~WrongCat(void);
 
-		void makeSound (void) const;
+		void makeSound(void) const;
 };

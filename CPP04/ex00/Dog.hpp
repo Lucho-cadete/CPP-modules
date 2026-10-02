@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:59 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 10:14:31 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/02 11:15:41 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ class Dog : public Animal{
 		Dog& operator=(Dog const &other);
 		~Dog(void);
 
-		void makeSound (void) const;
+		void makeSound(void) const;
 };
