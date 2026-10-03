@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:56 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/03 17:46:46 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/03 17:57:04 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Dog& Dog::operator=(Dog const &other)
 		delete this->_brain;
 		this->_brain = new Brain(*other._brain);
 	}
-		return (*this);
+	return (*this);
 }
 
 Dog::~Dog(void)

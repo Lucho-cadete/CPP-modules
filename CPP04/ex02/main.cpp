@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 09:59:10 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/03 17:50:53 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/03 17:57:49 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main()
 
 	std::cout << std::endl << "=== ABSTRACT CLASS: CANNOT BE INSTANTIATED ===" << std::endl << std::endl;
 
-	AAnimal test;   // uncomment this line: it must NOT compile (AAnimal is abstract)
+	// AAnimal test;   // uncomment this line: it must NOT compile (AAnimal is abstract)
 	std::cout << "AAnimal cannot be instantiated: makeSound is a pure virtual function" << std::endl;
 
 	std::cout << std::endl << "=== DEEP COPY TEST (COPY CONSTRUCTOR) ===" << std::endl << std::endl;
