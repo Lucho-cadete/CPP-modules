@@ -23,7 +23,7 @@ Cat::Cat(void) : Animal()
 Cat::Cat(Cat const &other) : Animal(other)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	// this->type = other.type;
+	// this->type = other.type; -> redundant, Animal(other) already copies type
 	this->_brain = new Brain(*other._brain);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:59 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 13:24:02 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/03 16:17:49 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ class Dog : public Aanimal{
 		~Dog(void);
 
 		void makeSound(void) const;
-		Brain *getBrain(void);
+		Brain *getBrain(void) const;
 };

@@ -22,7 +22,7 @@ WrongCat::WrongCat(void) : WrongAnimal()
 WrongCat::WrongCat(WrongCat const &other) : WrongAnimal(other)
 {
 	std::cout << "WrongCat copy constructor called" << std::endl;
-	// this->type = other.type;
+	// this->type = other.type; -> redundant, WrongAnimal(other) already copies type
 }
 
 WrongCat& WrongCat::operator=(WrongCat const &other)

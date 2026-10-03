@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:56 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 13:17:32 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/03 17:17:38 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Dog::Dog(void) : Animal()
 Dog::Dog(Dog const &other) : Animal(other)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
-	// this->type = other.type;
+	// this->type = other.type; : Redundant, Animal(other) already copies type.
 	this->_brain = new Brain(*other._brain);
 }
 
@@ -37,7 +37,7 @@ Dog& Dog::operator=(Dog const &other)
 		delete this->_brain;
 		this->_brain = new Brain(*other._brain);
 	}
-		return (*this);
+	return (*this);
 }
 
 Dog::~Dog(void)
