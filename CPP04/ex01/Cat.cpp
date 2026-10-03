@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:49 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 13:17:22 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/03 17:46:15 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void Cat::makeSound(void) const
 	std::cout << "meow meow meow" << std::endl;
 }
 
-Brain *Cat::getBrain(void)
+Brain *Cat::getBrain(void) const
 {
     return _brain;
 }

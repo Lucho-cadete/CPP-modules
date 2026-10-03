@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:56 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/03 17:17:38 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/03 17:46:22 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void Dog::makeSound(void) const
 	std::cout << "WOOF WOOF WOOF" << std::endl;
 }
 
-Brain *Dog::getBrain(void)
+Brain *Dog::getBrain(void) const
 {
     return _brain;
 }

@@ -6,16 +6,16 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:53 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 13:23:39 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/03 17:46:51 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Aanimal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Aanimal{
+class Cat : public AAnimal{
 	private:
 		Brain *_brain;
 	public:
@@ -25,5 +25,5 @@ class Cat : public Aanimal{
 		~Cat(void);
 
 		void makeSound(void) const;
-		Brain *getBrain(void);
+		Brain *getBrain(void) const;
 };

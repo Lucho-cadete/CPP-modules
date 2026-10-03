@@ -6,11 +6,11 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 09:59:10 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/03 16:30:29 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/03 17:50:53 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Brain.hpp"
@@ -21,7 +21,7 @@ int main()
 {
 	std::cout << "=== ARRAY OF ANIMALS: HALF DOGS, HALF CATS ===" << std::endl << std::endl;
 
-	Animal *animals[6];
+	AAnimal *animals[6];
 
 	for (int i = 0; i < 3; i++)
 		animals[i] = new Dog();
@@ -36,10 +36,15 @@ int main()
 		animals[i]->makeSound();
 	}
 
-	std::cout << std::endl << "=== DELETING THEM ALL AS ANIMAL* ===" << std::endl << std::endl;
+	std::cout << std::endl << "=== DELETING THEM ALL AS AANIMAL* ===" << std::endl << std::endl;
 
 	for (int i = 0; i < 6; i++)
 		delete animals[i];
+
+	std::cout << std::endl << "=== ABSTRACT CLASS: CANNOT BE INSTANTIATED ===" << std::endl << std::endl;
+
+	AAnimal test;   // uncomment this line: it must NOT compile (AAnimal is abstract)
+	std::cout << "AAnimal cannot be instantiated: makeSound is a pure virtual function" << std::endl;
 
 	std::cout << std::endl << "=== DEEP COPY TEST (COPY CONSTRUCTOR) ===" << std::endl << std::endl;
 

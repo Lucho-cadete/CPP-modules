@@ -6,16 +6,16 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:59 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/03 16:17:49 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/03 17:40:25 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Aanimal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Aanimal{
+class Dog : public AAnimal{
 	private:
 		Brain *_brain;
 	public:

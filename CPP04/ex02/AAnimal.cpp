@@ -5,44 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/02 13:22:07 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 13:22:53 by lucho            ###   ########.fr       */
+/*   Created: 2026/10/03 17:33:17 by lucho             #+#    #+#             */
+/*   Updated: 2026/10/03 17:37:43 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Aanimal.hpp"
+#include "AAnimal.hpp"
 #include <iostream>
 
-Aanimal::Aanimal(void)
+AAnimal::AAnimal(void)
 {
-	std::cout << "Aanimal default constructor called" << std::endl;
-	this->type = "Aanimal";
+	std::cout << "AAnimal default constructor called" << std::endl;
+	this->type = "AAnimal";
 }
 
-Aanimal::Aanimal(Aanimal const &other)
+AAnimal::AAnimal(AAnimal const &other)
 {
-	std::cout << "Aanimal copy constructor called" << std::endl;
+	std::cout << "AAnimal copy constructor called" << std::endl;
 	this->type = other.type;
 }
 
-Aanimal& Aanimal::operator=(Aanimal const &other)
+AAnimal& AAnimal::operator=(AAnimal const &other)
 {
-	std::cout << "Aanimal copy assignment operator called" << std::endl;
+	std::cout << "AAnimal copy assignment operator called" << std::endl;
 	this->type = other.type;
 	return (*this);
 }
 
-Aanimal::~Aanimal(void)
+AAnimal::~AAnimal(void)
 {
-	std::cout << "Aanimal destructor called" << std::endl;
+	std::cout << "AAnimal destructor called" << std::endl;
 }
 
-void Aanimal::makeSound(void) const
-{
-	std::cout << "* some generic Aanimal noise *" << std::endl;
-}
-
-std::string Aanimal::getType(void) const
+std::string AAnimal::getType(void) const
 {
 	return (this->type);
 }

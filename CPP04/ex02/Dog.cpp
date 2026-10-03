@@ -6,24 +6,23 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:29:56 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 13:23:53 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/03 17:46:46 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include <iostream>
 
-Dog::Dog(void) : Aanimal()
+Dog::Dog(void) : AAnimal()
 {
 	std::cout << "Dog default constructor called" << std::endl;
 	this->type = "Dog";
 	this->_brain = new Brain();
 }
 
-Dog::Dog(Dog const &other) : Aanimal(other)
+Dog::Dog(Dog const &other) : AAnimal(other)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
-	// this->type = other.type;
 	this->_brain = new Brain(*other._brain);
 }
 
@@ -33,7 +32,7 @@ Dog& Dog::operator=(Dog const &other)
 	
 	if (this != &other)
 	{
-		Aanimal::operator=(other);
+		AAnimal::operator=(other);
 		delete this->_brain;
 		this->_brain = new Brain(*other._brain);
 	}
@@ -51,7 +50,7 @@ void Dog::makeSound(void) const
 	std::cout << "WOOF WOOF WOOF" << std::endl;
 }
 
-Brain *Dog::getBrain(void)
+Brain *Dog::getBrain(void) const
 {
     return _brain;
 }

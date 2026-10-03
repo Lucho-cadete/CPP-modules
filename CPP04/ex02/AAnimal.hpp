@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 13:31:30 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/02 13:22:17 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/03 17:37:26 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 #include <string>
 
-class Aanimal{
+class AAnimal{
 	protected:
 		std::string	type;
 
 	public:
-		Aanimal(void);
-		Aanimal(Animal const &other);
-		Aanimal& operator=(Aanimal const &other);
-		virtual ~Aanimal(void);
+		AAnimal(void);
+		AAnimal(AAnimal const &other);
+		AAnimal& operator=(AAnimal const &other);
+		virtual ~AAnimal(void);
 
-		virtual void makeSound(void) const;
+		virtual void makeSound(void) const = 0;
 		std::string getType(void) const;
 };
