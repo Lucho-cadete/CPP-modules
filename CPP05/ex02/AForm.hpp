@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 16:45:24 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/09 23:22:50 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/09 23:25:15 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ class	AForm{
 		{
 			public:
 				virtual const char *what() const throw();
-		}
+		};
 	protected:
-		void executeAction() const = 0;
+		virtual void executeAction() const = 0;
 };
 std::ostream &operator<<(std::ostream &out, AForm const &);
