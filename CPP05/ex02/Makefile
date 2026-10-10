@@ -2,8 +2,8 @@ NAME = aform
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp
-HDRS = Bureaucrat.hpp AForm.hpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp
+HDRS = Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp
 
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
