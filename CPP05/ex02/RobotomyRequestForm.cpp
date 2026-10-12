@@ -60,6 +60,6 @@ void RobotomyRequestForm::executeAction() const
 		std::cout << " | () () |" << std::endl;
 		std::cout << "  \\  ^  /" << std::endl;
 		std::cout << "   |||||" << std::endl;	
-		std::cout << this->_target << " could not be robotimazed." <<std::endl;
+		std::cout << "The robotomy of " << this->_target << " failed." <<std::endl;
 	}
 }	
