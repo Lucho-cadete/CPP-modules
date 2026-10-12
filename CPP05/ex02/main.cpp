@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 10:26:42 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/12 18:27:30 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/12 19:37:26 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,22 @@
 
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+
+#include <ctime>
+#include <cstdlib>
+
 
 int main(void)
 {
+	std::srand(std::time(NULL));
+
 	std::cout << "--- 1. Everything ok ---" << std::endl;
 	{
 		Bureaucrat b("Boss", 1);
-		PresidentialPardonForm p("Arthur");
-		b.signForm(p);
-		b.executeForm(p);
+		RobotomyRequestForm r("Arthur");
+		b.signForm(r);
+		b.executeForm(r);
 	}
 
 	std::cout << "\n--- 2. Not signed ---" << std::endl;
