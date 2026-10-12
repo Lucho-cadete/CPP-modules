@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 16:45:14 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/09 23:38:04 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/12 18:29:14 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,17 @@ const char* AForm::GradeTooHighException::what() const throw()
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-	return("Grade too low");
+	return("grade is too low");
 }
 
 const char* AForm::FormNotSignedException::what() const throw()
 {
-	return("Form not signed");
+	return("form was not signed");
 }
 
 std::ostream &operator<<(std::ostream &out, AForm const &f)
 {
-	out << "AForm " << f.getName()
+	out << "Form " << f.getName()
 		<< ", grade to sign: " << f.getGradeToSign()
 		<< ", grade to execute: " << f.getGradeToExecute()
 		<< ", signed: " << (f.getSigned() ? "Yes" : "No") << ".";

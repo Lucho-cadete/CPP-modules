@@ -6,77 +6,124 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 10:26:42 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/09 23:41:36 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/12 18:27:30 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
+#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
-	// std::cout << "--- Valid aform ---" << std::endl;
-	// try
-	// {
-	// 	AForm a("A", 50, 25);
-	// 	std::cout << a << std::endl;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << "Exception: " << e.what() << std::endl;
-	// }
+	std::cout << "--- 1. Everything ok ---" << std::endl;
+	{
+		Bureaucrat b("Boss", 1);
+		PresidentialPardonForm p("Arthur");
+		b.signForm(p);
+		b.executeForm(p);
+	}
 
-	// std::cout << "\n--- Sign grade 0 ---" << std::endl;
-	// try
-	// {
-	// 	AForm b("B", 0, 25);
-	// 	std::cout << b << std::endl;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << "Exception: " << e.what() << std::endl;
-	// }
+	std::cout << "\n--- 2. Not signed ---" << std::endl;
+	{
+		Bureaucrat b("Boss", 1);
+		PresidentialPardonForm p("Arthur");
+		b.executeForm(p);
+	}
 
-	// std::cout << "\n--- Execute grade 151 ---" << std::endl;
-	// try
-	// {
-	// 	AForm c("C", 50, 151);
-	// 	std::cout << c << std::endl;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << "Exception: " << e.what() << std::endl;
-	// }
-	
-	// std::cout << "\n--- beSigned ---" << std::endl;
-	// try
-	// {
-	// 	Bureaucrat bob("Bob", 42);
-	// 	AForm easy("Easy", 50, 25);
-	// 	AForm hard("Hard", 10, 5);
+	std::cout << "\n--- 3. Grade too low to execute ---" << std::endl;
+	{
+		Bureaucrat b("Middle", 10);
+		PresidentialPardonForm p("Arthur");
+		b.signForm(p);
+		b.executeForm(p);
+	}
 
-	// 	easy.beSigned(bob);
-	// 	std::cout << easy << std::endl;
-	// 	hard.beSigned(bob);
-	// 	std::cout << hard << std::endl;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << "Exception: " << e.what() << std::endl;
-	// }
+	std::cout << "\n--- 4. Exact grade to execute (5) ---" << std::endl;
+	{
+		Bureaucrat b("Exact", 5);
+		PresidentialPardonForm p("Arthur");
+		b.signForm(p);
+		b.executeForm(p);
+	}
 
-	// std::cout << "\n--- FINAL TEST ---" << std::endl;
-	// std::cout << "\n--- signAForm ---" << std::endl;
-	
-	// Bureaucrat lucho("Lucho", 21);
-	// AForm basic("basic", 21, 21);
-	// AForm demanding("demanding", 1, 1);
-	
-	// lucho.signForm(basic);
-	// lucho.signForm(demanding);
-	// std::cout << std::endl;
-	// std::cout << basic << std::endl;
-	// std::cout << demanding << std::endl;
+	std::cout << "\n--- 5. One grade below execute limit (6) ---" << std::endl;
+	{
+		Bureaucrat b("Almost", 6);
+		PresidentialPardonForm p("Arthur");
+		b.signForm(p);
+		b.executeForm(p);
+	}
 
-	return(0);
+	std::cout << "\n--- 6. Exact grade to sign (25) and one below (26) ---" << std::endl;
+	{
+		Bureaucrat ok("Signer", 25);
+		Bureaucrat ko("Clerk", 26);
+		PresidentialPardonForm p1("Arthur");
+		PresidentialPardonForm p2("Ford");
+		ok.signForm(p1);
+		ko.signForm(p2);
+		std::cout << p1 << std::endl;
+		std::cout << p2 << std::endl;
+	}
+
+	std::cout << "\n--- 7. Not signed AND grade too low ---" << std::endl;
+	{
+		Bureaucrat b("Intern", 150);
+		PresidentialPardonForm p("Arthur");
+		b.executeForm(p);
+	}
+
+	std::cout << "\n--- 8. Execute twice ---" << std::endl;
+	{
+		Bureaucrat b("Boss", 1);
+		PresidentialPardonForm p("Arthur");
+		b.signForm(p);
+		b.executeForm(p);
+		b.executeForm(p);
+	}
+
+	std::cout << "\n--- 9. Copy constructor ---" << std::endl;
+	{
+		Bureaucrat b("Boss", 1);
+		PresidentialPardonForm p1("Arthur");
+		b.signForm(p1);
+		PresidentialPardonForm p2(p1);
+		std::cout << p2 << std::endl;
+		b.executeForm(p2);
+	}
+
+	std::cout << "\n--- 10. Assignment operator ---" << std::endl;
+	{
+		Bureaucrat b("Boss", 1);
+		PresidentialPardonForm p1("Arthur");
+		PresidentialPardonForm p2("Ford");
+		b.signForm(p1);
+		p2 = p1;
+		std::cout << p2 << std::endl;
+		b.executeForm(p2);
+	}
+
+	std::cout << "\n--- 11. Invalid bureaucrats ---" << std::endl;
+	try
+	{
+		Bureaucrat b("Bad", 0);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat b("Bad", 151);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	return (0);
 }
