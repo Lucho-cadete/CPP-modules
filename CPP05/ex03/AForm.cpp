@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 16:45:14 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/12 18:29:14 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/13 19:43:45 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void AForm::execute(Bureaucrat const &executor) const
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-	return("Grade too high");
+	return("grade is too high");
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
