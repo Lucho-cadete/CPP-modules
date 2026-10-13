@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 21:09:34 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/13 19:34:50 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/13 20:36:54 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ AForm* Intern::createShrubbery(std::string const &target) const
 	return (new ShrubberyCreationForm(target));
 }
 
+const char* Intern::FormNotFoundException::what() const throw()
+{
+	return("form does not exist");
+}
+
 AForm* Intern::makeForm(std::string const &formName, std::string const &target) const
 {
 	std::string const	names[3] = {
@@ -67,5 +72,6 @@ AForm* Intern::makeForm(std::string const &formName, std::string const &target) 
 	}
 	std::cout << "Intern could not create \"" << formName
 		<< "\" because this form does not exist." << std::endl;
-	return (NULL);
+	
+	throw Intern::FormNotFoundException();
 }

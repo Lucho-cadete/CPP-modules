@@ -1,7 +1,7 @@
 NAME = bureaucrat
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -std=c++11
 SRCS = main.cpp Bureaucrat.cpp
 HDRS = Bureaucrat.hpp
 

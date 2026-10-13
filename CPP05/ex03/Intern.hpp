@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 21:09:36 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/13 19:35:26 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/13 20:09:23 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,11 @@ class Intern{
 		Intern &operator=(Intern const &other);
 		~Intern(void);
 
+		class FormNotFoundException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+		
 		AForm *makeForm(std::string const &formName, std::string const &target) const;
 };

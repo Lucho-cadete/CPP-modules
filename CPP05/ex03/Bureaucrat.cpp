@@ -6,7 +6,7 @@ Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150)
 {}
 
 Bureaucrat::Bureaucrat(std::string const &name, int grade)
-	: _name(name)//here added because _name is const!
+	: _name(name)
 {
 	if (grade < 1)
 		throw GradeTooHighException();

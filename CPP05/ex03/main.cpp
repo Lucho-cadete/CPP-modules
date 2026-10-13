@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 10:26:42 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/13 19:20:31 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/13 20:36:22 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ static void	testIntern(Intern const &intern, Bureaucrat &boss,
 	try
 	{
 		form = intern.makeForm(formName, target);
-		if (form == NULL)
-			return ;
 		std::cout << *form << std::endl;
 		boss.signForm(*form);
 		boss.executeForm(*form);
