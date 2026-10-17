@@ -6,12 +6,14 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 18:06:02 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/16 21:29:21 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/17 08:47:22 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <cctype>
+#include <cstdlib>
+#include <limits>
 
 enum e_type
 {
@@ -113,15 +115,51 @@ ScalarConverter::~ScalarConverter(void)
 void	ScalarConverter::convert(std::string const &literal)
 {
 	e_type	type = detectType(literal);
-
-	if (type == TYPE_CHAR)
-		std::cout << "char" << std::endl;
-	else if (type == TYPE_INT)
-		std::cout << "int" << std::endl;
-	else if (type == TYPE_FLOAT)
-		std::cout << "float" << std::endl;
-	else if (type == TYPE_DOUBLE)
-		std::cout << "double" << std::endl;
-	else
-		std::cout << "invalid" << std::endl;
+	double value;
+	
+	try
+	{
+		switch (type)
+		{
+			case TYPE_CHAR:
+			{
+				char c = literal[0];
+				value = static_cast<double>(c);
+				break;
+			}
+			case TYPE_INT:
+			{
+				int n = std::stoi(literal);
+				value = static_cast<double>(n);
+				break;
+			}
+			case TYPE_FLOAT:
+			{
+				float f = std::stof(literal);
+				value = static_cast<double>(f);
+				break
+			}
+			case TYPE_DOUBLE:
+			{
+				double d = std::stod(literal);
+				value = d;
+				break;
+			}
+			default:
+				std::cout << "Error: Invalid literal" << std::endl;
+				return;
+		}
+	}
+	catch (std::out_of_range const &e)
+		{
+			std::cout << "char: impossible" << std::endl;
+			std::cout << "int: impossible" << std::endl;
+			std::cout << "float: impossible" << std::endl;
+			std::cout << "double: impossible" << std::endl;
+			return ;
+		}
+	printChar(value);
+	printInt(value);
+	printFloat(value);
+	printDouble(value);	
 }
