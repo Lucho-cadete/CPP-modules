@@ -6,14 +6,18 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 18:06:02 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/17 08:47:22 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/18 18:52:36 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <cctype>
-#include <cstdlib>
+#include <iostream>
+#include <sstream>
+#include <cmath>
 #include <limits>
+#include <cctype>
+#include <string>
+#include <stdexcept>
 
 enum e_type
 {
@@ -112,6 +116,84 @@ ScalarConverter& ScalarConverter::operator=(ScalarConverter const &other)
 ScalarConverter::~ScalarConverter(void)
 {}
 
+static std::string	formatNumber(double value)
+{
+	std::ostringstream	out;
+
+	out << value;
+	std::string	text = out.str();
+	if (text.find('.') == std::string::npos && text.find('e') == std::string::npos)
+		text += ".0";
+	return (text);
+}
+
+static void	printChar(double value)
+{
+	std::cout << "char: ";
+	if (std::isnan(value) || value < 0 || value > 127)
+	{
+		std::cout << "impossible" << std::endl;
+		return ;
+	}
+	char	c = static_cast<char>(value);
+	if (!std::isprint(static_cast<int>(c)))
+		std::cout << "Non displayable" << std::endl;
+	else
+		std::cout << "'" << c << "'" << std::endl;
+}
+
+static void	printInt(double value)
+{
+	std::cout << "int: ";
+	if (std::isnan(value)
+		|| value < static_cast<double>(std::numeric_limits<int>::min())
+		|| value > static_cast<double>(std::numeric_limits<int>::max()))
+	{
+		std::cout << "impossible" << std::endl;
+		return ;
+	}
+	std::cout << static_cast<int>(value) << std::endl;
+}
+
+static void	printFloat(double value)
+{
+	std::cout << "float: ";
+	if (std::isnan(value))
+	{
+		std::cout << "nanf" << std::endl;
+		return ;
+	}
+	if (std::isinf(value))
+	{
+		std::cout << (value > 0 ? "+inff" : "-inff") << std::endl;
+		return ;
+	}
+	if (value > static_cast<double>(std::numeric_limits<float>::max())
+		|| value < -static_cast<double>(std::numeric_limits<float>::max()))
+	{
+		std::cout << "impossible" << std::endl;
+		return ;
+	}
+	float	f = static_cast<float>(value);
+	std::cout << formatNumber(static_cast<double>(f)) << "f" << std::endl;
+}
+
+static void	printDouble(double value)
+{
+	std::cout << "double: ";
+	if (std::isnan(value))
+	{
+		std::cout << "nan" << std::endl;
+		return ;
+	}
+	if (std::isinf(value))
+	{
+		std::cout << (value > 0 ? "+inf" : "-inf") << std::endl;
+		return ;
+	}
+	std::cout << formatNumber(value) << std::endl;
+}
+
 void	ScalarConverter::convert(std::string const &literal)
 {
 	e_type	type = detectType(literal);
@@ -137,7 +219,7 @@ void	ScalarConverter::convert(std::string const &literal)
 			{
 				float f = std::stof(literal);
 				value = static_cast<double>(f);
-				break
+				break;
 			}
 			case TYPE_DOUBLE:
 			{
@@ -151,13 +233,13 @@ void	ScalarConverter::convert(std::string const &literal)
 		}
 	}
 	catch (std::out_of_range const &e)
-		{
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: impossible" << std::endl;
-			std::cout << "double: impossible" << std::endl;
-			return ;
-		}
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: impossible" << std::endl;
+		std::cout << "double: impossible" << std::endl;
+		return ;
+	}
 	printChar(value);
 	printInt(value);
 	printFloat(value);
