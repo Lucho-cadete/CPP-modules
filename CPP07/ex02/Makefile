@@ -3,7 +3,7 @@ NAME = array
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++11
 SRCS = main.cpp
-HDRS = Array.hpp
+HDRS = Array.hpp Array.tpp
 
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
