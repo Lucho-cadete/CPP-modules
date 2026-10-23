@@ -6,7 +6,7 @@
 /*   By: lucho <lucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 16:45:24 by lucho             #+#    #+#             */
-/*   Updated: 2026/10/09 16:45:27 by lucho            ###   ########.fr       */
+/*   Updated: 2026/10/16 19:34:42 by lucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ class	Form{
 		bool				_signed;
 
 	public:
-		Form(void);
-		Form(Form const &other);
-		Form &operator=(Form const &other);
-		~Form(void);
+		c
 		Form(std::string const &name, int gradeToSign, int gradeToExecute);
 
 		std::string getName() const;

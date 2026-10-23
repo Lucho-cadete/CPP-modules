@@ -1,3 +1,4 @@
+
 # C++ Modules
 
 My solutions to the C++ modules of the 42 curriculum: a step-by-step introduction to object-oriented programming in C++, from the first class to the STL.
@@ -13,10 +14,10 @@ Each module focuses on one group of concepts and builds on the previous ones.
 | [CPP02](CPP02) | Operator overloading and Orthodox Canonical Form | Done |
 | [CPP03](CPP03) | Inheritance | Done |
 | [CPP04](CPP04) | Polymorphism, abstract classes and interfaces | Done |
-| [CPP05](CPP05) | Exceptions and error handling | In progress |
-| CPP06 | Type casting | Upcoming |
-| CPP07 | Templates | Upcoming |
-| CPP08 | Containers, iterators and algorithms | Upcoming |
+| [CPP05](CPP05) | Exceptions and error handling | Done |
+| [CPP06](CPP06) | Type casting | Done |
+| [CPP07](CPP07) | Templates | Done |
+| [CPP08](CPP08) | Containers, iterators and algorithms | In progress |
 | CPP09 | STL in practice | Upcoming |
 
 ## What I learned
