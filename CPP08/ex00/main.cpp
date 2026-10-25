@@ -53,7 +53,7 @@ int	main(void)
 			<< std::distance(numbers.begin(), it) << std::endl;
 	}
 
-	std::cout << "\n=== 5. The iterator points to the original element ===" << std::endl;
+	std::cout << "\n=== 5. Change the found element through the returned iterator (30 -> 333) ===" << std::endl;
 	{
 		std::vector<int>	numbers;
 
@@ -94,6 +94,21 @@ int	main(void)
 		{
 			std::cout << "empty list: " << e.what() << std::endl;
 		}
+	}
+
+	std::cout << "\n=== 8. Const container: read-only search ===" << std::endl;
+	{
+		std::vector<int>	numbers;
+
+		for (int i = 0; i < 5; i++)
+			numbers.push_back(i * 10);
+
+		std::vector<int> const				frozen(numbers);
+		std::vector<int>::const_iterator	it = easyfind(frozen, 10);
+
+		std::cout << "found " << *it << " at position "
+			<< std::distance(frozen.begin(), it) << std::endl;
+		// *it = 5;   // does not compile: the container is const
 	}
 	return (0);
 }

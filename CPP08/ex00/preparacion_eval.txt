@@ -1,2 +1,0 @@
-- Tener claro el concepto de iterador, que es lo que devuelve la funcion easyfind.
-- 
