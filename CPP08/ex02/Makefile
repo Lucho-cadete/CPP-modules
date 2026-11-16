@@ -3,7 +3,7 @@ NAME = mutantstack
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++11
 SRCS = main.cpp
-HDRS = MutantStack.hpp
+HDRS = MutantStack.hpp MutantStack.tpp
 
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
