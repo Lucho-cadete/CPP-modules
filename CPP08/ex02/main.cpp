@@ -1,6 +1,8 @@
 #include "MutantStack.hpp"
 #include <iostream>
 #include <list>
+#include <string>
+#include <algorithm>
 
 int	main(void)
 {
@@ -62,6 +64,44 @@ int	main(void)
 		std::list<int>	s(lst);
 
 		std::cout << s.back() << std::endl;
+	}
+		std::cout << "\n---> Empty MutantStack: begin() == end() <---" << std::endl;
+	{
+		MutantStack<int>	empty;
+
+		if (empty.begin() == empty.end())
+			std::cout << "nothing to iterate" << std::endl;
+	}
+		std::cout << "\n---> Change an element through an iterator <---" << std::endl;
+	{
+		MutantStack<int>	mstack;
+
+		mstack.push(10);
+		mstack.push(20);
+		mstack.push(30);
+
+		MutantStack<int>::iterator	it = std::find(mstack.begin(), mstack.end(), 20);
+
+		*it = 99;
+		for (it = mstack.begin(); it != mstack.end(); ++it)
+			std::cout << *it << " ";
+		std::cout << std::endl;
+		std::cout << "top is still: " << mstack.top() << std::endl;
+	}
+		std::cout << "\n---> Const MutantStack of strings <---" << std::endl;
+	{
+		MutantStack<std::string>	words;
+
+		words.push("hello");
+		words.push("mutant");
+		words.push("stack");
+
+		MutantStack<std::string> const	frozen(words);
+
+		for (MutantStack<std::string>::const_iterator it = frozen.begin(); it != frozen.end(); ++it)
+			std::cout << *it << " ";
+		std::cout << std::endl;
+		std::cout << "size: " << frozen.size() << ", top: " << frozen.top() << std::endl;
 	}
 	return (0);
 }
